@@ -70,11 +70,11 @@
         .feature p {
             font-size: 1rem;
         }
-        .copy-discord {
+        .copy-discord, .server-image {
             margin-top: 2rem;
             text-align: center;
         }
-        .copy-discord button {
+        .copy-discord button, .server-image button {
             background: #5865F2;
             color: #fff;
             border: none;
@@ -85,7 +85,7 @@
             cursor: pointer;
             transition: background 0.3s;
         }
-        .copy-discord button:hover {
+        .copy-discord button:hover, .server-image button:hover {
             background: #4b5aba;
         }
         footer {
@@ -119,6 +119,11 @@
     <div class="copy-discord">
         <p>서버장을 친구 추가하려면 아래 버튼을 클릭하세요.</p>
         <button onclick="copyDiscordID()">서버장 친구 추가 (서현)</button>
+    </div>
+
+    <div class="server-image">
+        <p>서버 이미지를 보시려면 아래 버튼을 클릭하세요.</p>
+        <button onclick="location.href='server-image.html'">서버 이미지 보기</button>
     </div>
 
     <section class="features">
