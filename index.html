@@ -70,6 +70,24 @@
         .feature p {
             font-size: 1rem;
         }
+        .copy-discord {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .copy-discord button {
+            background: #5865F2;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .copy-discord button:hover {
+            background: #4b5aba;
+        }
         footer {
             margin-top: auto;
             text-align: center;
@@ -97,6 +115,12 @@
     <div class="cta">
         <a href="https://discord.gg/PYrCXgS8n7" target="_blank">지금 참여하기</a>
     </div>
+    
+    <div class="copy-discord">
+        <p>서버장을 친구 추가하려면 아래 버튼을 클릭하세요.</p>
+        <button onclick="copyDiscordID()">서버장 친구 추가 (서현)</button>
+    </div>
+
     <section class="features">
         <div class="feature">
             <h3>🎉 커뮤니티 이벤트</h3>
@@ -115,8 +139,20 @@
             <p>독점적인 튜토리얼, 가이드 및 전문가의 조언을 이용하세요.</p>
         </div>
     </section>
+
     <footer>
         <p>© 2025 우리의 디스코드 커뮤니티. 커뮤니티를 위해 💜로 제작되었습니다. <a href="https://discord.gg/PYrCXgS8n7" target="_blank">지금 참여하세요!</a></p>
     </footer>
+
+    <script>
+        function copyDiscordID() {
+            const discordID = 'seo_hyun02';
+            navigator.clipboard.writeText(discordID).then(() => {
+                alert('서버장의 디스코드 아이디가 복사되었습니다: ' + discordID);
+            }).catch(err => {
+                alert('복사에 실패했습니다. 다시 시도해주세요.');
+            });
+        }
+    </script>
 </body>
 </html>
