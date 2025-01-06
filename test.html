@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="야한말할래? 디스코드 서버">
-    <title>야한말할래? 디스코드 서버</title>
+    <meta name="description" content="야한말할래? : 의미 있는 대화와 교류를 위한 독점적인 성인 디스코드 커뮤니티에 가입하세요.">
+    <title>야한말할래?</title>
+    <link rel="icon" href="image/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -26,67 +27,50 @@
             font-size: 3rem;
             margin: 0;
         }
-        header p {
-            font-size: 1.2rem;
-            margin: 0.5rem 0 0;
-        }
-        .cta {
-            text-align: center;
-            margin-top: 2rem;
-        }
-        .cta a {
-            text-decoration: none;
-            background: #7289DA;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            color: #fff;
-            font-weight: 700;
-            font-size: 1.2rem;
-            transition: background 0.3s;
-        }
-        .cta a:hover {
-            background: #5b6eae;
-        }
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 20px;
             max-width: 1200px;
-            margin: 2rem auto;
-            gap: 1.5rem;
+            margin: 0 auto;
         }
-        .feature {
-            background: #40444B;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-        .feature h3 {
-            margin-top: 0;
-            font-size: 1.5rem;
-        }
-        .feature p {
-            font-size: 1rem;
-        }
-        .copy-discord, .server-image {
-            margin-top: 2rem;
-            text-align: center;
-        }
-        .copy-discord button, .server-image button {
-            background: #5865F2;
-            color: #fff;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            font-weight: 700;
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: transform 0.2s;
         }
-        .copy-discord button:hover, .server-image button:hover {
-            background: #4b5aba;
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .modal .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #fff;
+            font-size: 2rem;
+            text-decoration: none;
+        }
+        .modal .close:hover {
+            color: #f39c12;
         }
         footer {
             margin-top: auto;
@@ -109,54 +93,49 @@
 </head>
 <body>
     <header>
-        <h1>야한말할래? 디스코드 서버에 오신 것을 환영합니다!</h1>
-        <p>비슷한 관심사를 가진 사람들과 연결되고 성장할 수 있는 공간이예요.</p>
+        <h1>야한말할래? 사진 갤러리</h1>
     </header>
-    <div class="cta">
-        <a href="https://discord.gg/PYrCXgS8n7" target="_blank">지금 참여하기</a>
-    </div>
-    
-    <div class="copy-discord">
-        <p>서버장을 친구 추가하려면 아래 버튼을 클릭하세요.</p>
-        <button onclick="copyDiscordID()">서버장 친구 추가 (서현)</button>
-    </div>
-
-    <div class="server-image">
-        <p>서버 이미지를 보시려면 아래 버튼을 클릭하세요.</p>
-        <button onclick="location.href='image.html'">서버 이미지 보기</button>
-    </div>
-
-    <section class="features">
-        <div class="feature">
-            <h3>🎉 커뮤니티 이벤트</h3>
-            <p>여러분의 관심사에 맞춘 정기적인 이벤트와 활동에 참여하세요.</p>
-        </div>
-        <div class="feature">
-            <h3>💬 활발한 대화</h3>
-            <p>다양한 주제에 대해 의미 있는 대화를 나눠보세요.</p>
-        </div>
-        <div class="feature">
-            <h3>🎮 게임 재미</h3>
-            <p>게임 세션에 참여하고 다른 멤버들과 경쟁하세요.</p>
-        </div>
-        <div class="feature">
-            <h3>📚 학습 자료</h3>
-            <p>독점적인 튜토리얼, 가이드 및 전문가의 조언을 이용하세요.</p>
-        </div>
+    <section class="gallery">
+        <img src="image/image1.jpg" alt="사진 1" onclick="openModal('img1')">
+        <img src="image/image2.jpg" alt="사진 2" onclick="openModal('img2')">
+        <img src="image/image3.jpg" alt="사진 3" onclick="openModal('img3')">
+        <img src="image/image4.jpg" alt="사진 4" onclick="openModal('img4')">
+        <img src="https://via.placeholder.com/300" alt="사진 5" onclick="openModal('img5')">
     </section>
 
+    <!-- Modal -->
+    <div id="img1" class="modal">
+        <a href="javascript:void(0);" class="close" onclick="closeModal('img1')">&times;</a>
+        <img src="image/image1.jpg" alt="사진 1">
+    </div>
+    <div id="img2" class="modal">
+        <a href="javascript:void(0);" class="close" onclick="closeModal('img2')">&times;</a>
+        <img src="image/image2.jpg" alt="사진 2">
+    </div>
+    <div id="img3" class="modal">
+        <a href="javascript:void(0);" class="close" onclick="closeModal('img3')">&times;</a>
+        <img src="image/image3.jpg" alt="사진 3">
+    </div>
+    <div id="img4" class="modal">
+        <a href="javascript:void(0);" class="close" onclick="closeModal('img4')">&times;</a>
+        <img src="image/image4.jpg" alt="사진 4">
+    </div>
+    <div id="img5" class="modal">
+        <a href="javascript:void(0);" class="close" onclick="closeModal('img5')">&times;</a>
+        <img src="https://via.placeholder.com/300" alt="사진 5">
+    </div>
+
     <footer>
-        <p>© 2025 우리의 디스코드 커뮤니티. 커뮤니티를 위해 💜로 제작되었습니다. <a href="https://discord.gg/PYrCXgS8n7" target="_blank">지금 참여하세요!</a></p>
+        <p>&copy; 2024 야한말할래?. 모든 권리 보유.</p>
     </footer>
 
     <script>
-        function copyDiscordID() {
-            const discordID = 'seo_hyun02';
-            navigator.clipboard.writeText(discordID).then(() => {
-                alert('서버장의 디스코드 아이디가 복사되었습니다: ' + discordID);
-            }).catch(err => {
-                alert('복사에 실패했습니다. 다시 시도해주세요.');
-            });
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
         }
     </script>
 </body>
